@@ -1,20 +1,15 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const db = require('./db');
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(bodyParser.json());
+const router = express.Router(); // Create a router instead of a new app
 
 // Require and use the route files
 const signupRoute = require('./routes/signup');
 const loginRoute = require('./routes/login');
 const protectedRoute = require('./routes/protected');
+const rideRoute = require('./routes/ride');
 
-app.use(signupRoute);
-app.use(loginRoute);
-app.use(protectedRoute);
+router.use(signupRoute);
+router.use(loginRoute);
+router.use(protectedRoute);
+router.use(rideRoute);
 
-app.listen(PORT, () => {
-  console.log(`Server started on http://localhost:${PORT}`);
-});
+module.exports = router; // Export the router
