@@ -27,9 +27,10 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.methods.generateAuthToken = function () {
-  const token = jwt.sign({ _id: this._id }, config.jwtSecret, { expiresIn: '1h' });
-  return token;
-};
+// userSchema.methods.generateAuthToken = function () {
+// console.log('this')
+//   const token = jwt.sign({ _id: this._id ,user:this}, config.jwtSecret, { expiresIn: '1h' });
+//   return token;
+// };
 
 module.exports = mongoose.model('User', userSchema);

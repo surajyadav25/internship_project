@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middleware/authMiddleware');
+const rideController = require('../controller/ride')
 
-router.get('/ridehop/protected', authMiddleware, (req, res) => {
-  res.json({ message: 'Protected route access granted.' });
-});
+router.post('/ride/create', authMiddleware, rideController.createRide);
+router.post('/ride/findride', authMiddleware, rideController.getRides);
+
+
+router.get('/ride/offeredRides', authMiddleware, rideController.offeredRides);
+
+
 
 module.exports = router;

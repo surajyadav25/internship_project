@@ -29,6 +29,15 @@ const rideSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  bookingId:{
+    type:Number,
+    required:true
+  },
+
+  user:{
+    type:{},
+    ref:'User'
+  }
 });
 
 // Create the "rides" collection in the database using the rideSchema
