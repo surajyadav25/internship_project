@@ -36,8 +36,12 @@ const rideSchema = new mongoose.Schema({
 
   user:{
     type:{},
-    ref:'User'
-  }
+    
+  },
+
+  bookingUsers:[]
+
+
 });
 
 // Create the "rides" collection in the database using the rideSchema

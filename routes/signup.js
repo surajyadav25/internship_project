@@ -15,8 +15,8 @@ router.post('/ridehop/signup', async (req, res) => {
     const user = new User({ email, fullName, password, gender, age });
     await user.save();
 
-    // Generate and send the token upon successful signup
-    const token = jwt.sign({ user: { id: user.id, email: user.email } }, config.jwtSecret, { expiresIn: 3600 });
+    // // Generate and send the token upon successful signup
+    // const token = jwt.sign({ user: { id: user.id, email: user.email } }, config.jwtSecret, { expiresIn: 3600 });
 
     res.status(201).json({
       message: 'User created successfully',
@@ -27,7 +27,7 @@ router.post('/ridehop/signup', async (req, res) => {
         gender: user.gender,
         age: user.age,
       },
-      token: token,
+      // token: token,
     });
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
