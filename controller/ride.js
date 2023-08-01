@@ -232,7 +232,7 @@ exports.bookRide = async (req, res)=>{
 
         userBookingRide[0].ridesBooked.push({...currentRide,seats:seats})
 
-       
+        
 
        
 
@@ -275,8 +275,7 @@ exports.getBookedRides = async (req,res)=>{
   try{
 
     const currentUser = await User.find({'_id':new ObjectId(req.user.id)})
-
-    res.json(currentUser.ridesBooked || []);
+    res.json(currentUser[0].ridesBooked || []);
 
   }catch (error) {
 
